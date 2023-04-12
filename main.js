@@ -10,3 +10,56 @@ function isPrime(num) {
     if (num % i == 0 || num % (i + 2) == 0) return false;
   return true;
 }
+
+
+function doubleNumbers(arr){
+  return arr.map(el => el * 2);
+}
+
+console.log(doubleNumbers(data));
+
+function primeNumbers (arr){
+  return arr.filter(isPrime).sort((a,b)=> a - b);
+}
+
+console.log(primeNumbers(data));
+
+function converted(arr){
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    let newElement = {
+      number: arr[i],
+      isPrime: isPrime(arr[i])
+    }
+    result.push(newElement);     
+  }
+  return result;
+}
+
+console.log(converted(data));
+
+function highestPrime(arr){
+  let highest = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (highest < arr[i].number && isPrime(arr[i].number)){
+      highest = arr[i].number;
+    }
+  }
+  return highest;
+}
+
+console.log(highestPrime(converted(data)));
+
+function lowHigh(arr){
+  return arr.sort((a,b) => a.number - b.number);
+}
+
+console.log(lowHigh(converted(data)));
+
+// high to low
+
+function highLow(arr){
+  return arr.sort((a,b) => b.number - a.number);
+}
+
+console.log(highLow(converted(data)));
